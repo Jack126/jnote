@@ -1,4 +1,4 @@
-package come.jnote.config;
+package com.jnote.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import org.slf4j.Logger;
