@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jnote.dao.ProductDocContentMapper">
+  <resultMap id="BaseResultMap" type="com.jnote.model.ProductDocContent">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="product_doc_id" jdbcType="INTEGER" property="product_doc_id" />
+    <result column="version" jdbcType="CHAR" property="version" />
+    <result column="updatedby_id" jdbcType="INTEGER" property="updatedby_id" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="create_time" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="update_time" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.jnote.model.ProductDocContent">
+    <result column="content" jdbcType="LONGVARCHAR" property="content" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, product_doc_id, version, updatedby_id, create_time, update_time
+  </sql>
+  <sql id="Blob_Column_List">
+    content
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from jnote_product_doc_content
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from jnote_product_doc_content
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.jnote.model.ProductDocContent">
+    insert into jnote_product_doc_content (id, product_doc_id, version, 
+      updatedby_id, create_time, update_time, 
+      content)
+    values (#{id,jdbcType=INTEGER}, #{product_doc_id,jdbcType=INTEGER}, #{version,jdbcType=CHAR}, 
+      #{updatedby_id,jdbcType=INTEGER}, #{create_time,jdbcType=TIMESTAMP}, #{update_time,jdbcType=TIMESTAMP}, 
+      #{content,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.jnote.model.ProductDocContent">
+    insert into jnote_product_doc_content
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="product_doc_id != null">
+        product_doc_id,
+      </if>
+      <if test="version != null">
+        version,
+      </if>
+      <if test="updatedby_id != null">
+        updatedby_id,
+      </if>
+      <if test="create_time != null">
+        create_time,
+      </if>
+      <if test="update_time != null">
+        update_time,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="product_doc_id != null">
+        #{product_doc_id,jdbcType=INTEGER},
+      </if>
+      <if test="version != null">
+        #{version,jdbcType=CHAR},
+      </if>
+      <if test="updatedby_id != null">
+        #{updatedby_id,jdbcType=INTEGER},
+      </if>
+      <if test="create_time != null">
+        #{create_time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="update_time != null">
+        #{update_time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jnote.model.ProductDocContent">
+    update jnote_product_doc_content
+    <set>
+      <if test="product_doc_id != null">
+        product_doc_id = #{product_doc_id,jdbcType=INTEGER},
+      </if>
+      <if test="version != null">
+        version = #{version,jdbcType=CHAR},
+      </if>
+      <if test="updatedby_id != null">
+        updatedby_id = #{updatedby_id,jdbcType=INTEGER},
+      </if>
+      <if test="create_time != null">
+        create_time = #{create_time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="update_time != null">
+        update_time = #{update_time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="content != null">
+        content = #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.jnote.model.ProductDocContent">
+    update jnote_product_doc_content
+    set product_doc_id = #{product_doc_id,jdbcType=INTEGER},
+      version = #{version,jdbcType=CHAR},
+      updatedby_id = #{updatedby_id,jdbcType=INTEGER},
+      create_time = #{create_time,jdbcType=TIMESTAMP},
+      update_time = #{update_time,jdbcType=TIMESTAMP},
+      content = #{content,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jnote.model.ProductDocContent">
+    update jnote_product_doc_content
+    set product_doc_id = #{product_doc_id,jdbcType=INTEGER},
+      version = #{version,jdbcType=CHAR},
+      updatedby_id = #{updatedby_id,jdbcType=INTEGER},
+      create_time = #{create_time,jdbcType=TIMESTAMP},
+      update_time = #{update_time,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

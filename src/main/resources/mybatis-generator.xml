@@ -38,6 +38,90 @@
             <!--添加属性useActualColumnNames为true,那么生成的对象字段就跟表一样-->
             <property name="useActualColumnNames" value="true"/>
         </table>
+        <table tableName="jnote_admin" domainObjectName="Admin" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+            <!--添加属性useActualColumnNames为true,那么生成的对象字段就跟表一样-->
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <table tableName="jnote_blog" domainObjectName="Blog" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+            <!--添加属性useActualColumnNames为true,那么生成的对象字段就跟表一样-->
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <table tableName="jnote_blog_blogcategoryid_relation" domainObjectName="BlogBlogCategoryidRelation" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+            <!--添加属性useActualColumnNames为true,那么生成的对象字段就跟表一样-->
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <table tableName="jnote_blog_category" domainObjectName="BlogCategory" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+            <!--添加属性useActualColumnNames为true,那么生成的对象字段就跟表一样-->
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <table tableName="jnote_blog_comment" domainObjectName="BlogComment" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+            <!--添加属性useActualColumnNames为true,那么生成的对象字段就跟表一样-->
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <table tableName="jnote_blog_content" domainObjectName="BlogContent" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+            <!--添加属性useActualColumnNames为true,那么生成的对象字段就跟表一样-->
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <table tableName="jnote_blog_like" domainObjectName="BlogLike" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+            <!--添加属性useActualColumnNames为true,那么生成的对象字段就跟表一样-->
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <table tableName="jnote_blog_viewcount" domainObjectName="BlogViewcount" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+            <!--添加属性useActualColumnNames为true,那么生成的对象字段就跟表一样-->
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <table tableName="jnote_department" domainObjectName="Department" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+            <!--添加属性useActualColumnNames为true,那么生成的对象字段就跟表一样-->
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <table tableName="jnote_department_module_relation" domainObjectName="DepartmentModuleRelation" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+            <!--添加属性useActualColumnNames为true,那么生成的对象字段就跟表一样-->
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <table tableName="jnote_job" domainObjectName="Job" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+            <!--添加属性useActualColumnNames为true,那么生成的对象字段就跟表一样-->
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <table tableName="jnote_login" domainObjectName="Login" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+            <!--添加属性useActualColumnNames为true,那么生成的对象字段就跟表一样-->
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <table tableName="jnote_login_error_log" domainObjectName="LoginErrorLog" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+            <!--添加属性useActualColumnNames为true,那么生成的对象字段就跟表一样-->
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <table tableName="jnote_member" domainObjectName="Member" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+            <!--添加属性useActualColumnNames为true,那么生成的对象字段就跟表一样-->
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <table tableName="jnote_module" domainObjectName="Module" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+            <!--添加属性useActualColumnNames为true,那么生成的对象字段就跟表一样-->
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <table tableName="jnote_product" domainObjectName="Product" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+            <!--添加属性useActualColumnNames为true,那么生成的对象字段就跟表一样-->
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <table tableName="jnote_product_doc" domainObjectName="ProductDoc" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+            <!--添加属性useActualColumnNames为true,那么生成的对象字段就跟表一样-->
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <table tableName="jnote_product_doc_content" domainObjectName="ProductDocContent" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+            <!--添加属性useActualColumnNames为true,那么生成的对象字段就跟表一样-->
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <table tableName="jnote_role" domainObjectName="Role" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+            <!--添加属性useActualColumnNames为true,那么生成的对象字段就跟表一样-->
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <table tableName="jnote_role_rule_relate" domainObjectName="RoleRuleRelate" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+            <!--添加属性useActualColumnNames为true,那么生成的对象字段就跟表一样-->
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <table tableName="jnote_rule" domainObjectName="Rule" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+            <!--添加属性useActualColumnNames为true,那么生成的对象字段就跟表一样-->
+            <property name="useActualColumnNames" value="true"/>
+        </table>
         <!--<table tableName="stockTheme" domainObjectName="StockTheme" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
     </context>
 </generatorConfiguration>
