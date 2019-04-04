@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jnote.mapper.JnoteLoginMapper">
+  <resultMap id="BaseResultMap" type="com.jnote.model.JnoteLogin">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="member_id" jdbcType="INTEGER" property="member_id" />
+    <result column="login_times" jdbcType="INTEGER" property="login_times" />
+    <result column="last_login_time" jdbcType="TIMESTAMP" property="last_login_time" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, member_id, login_times, last_login_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from jnote_login
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from jnote_login
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.jnote.model.JnoteLogin">
+    insert into jnote_login (id, member_id, login_times, 
+      last_login_time)
+    values (#{id,jdbcType=INTEGER}, #{member_id,jdbcType=INTEGER}, #{login_times,jdbcType=INTEGER}, 
+      #{last_login_time,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.jnote.model.JnoteLogin">
+    insert into jnote_login
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="member_id != null">
+        member_id,
+      </if>
+      <if test="login_times != null">
+        login_times,
+      </if>
+      <if test="last_login_time != null">
+        last_login_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="member_id != null">
+        #{member_id,jdbcType=INTEGER},
+      </if>
+      <if test="login_times != null">
+        #{login_times,jdbcType=INTEGER},
+      </if>
+      <if test="last_login_time != null">
+        #{last_login_time,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jnote.model.JnoteLogin">
+    update jnote_login
+    <set>
+      <if test="member_id != null">
+        member_id = #{member_id,jdbcType=INTEGER},
+      </if>
+      <if test="login_times != null">
+        login_times = #{login_times,jdbcType=INTEGER},
+      </if>
+      <if test="last_login_time != null">
+        last_login_time = #{last_login_time,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jnote.model.JnoteLogin">
+    update jnote_login
+    set member_id = #{member_id,jdbcType=INTEGER},
+      login_times = #{login_times,jdbcType=INTEGER},
+      last_login_time = #{last_login_time,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

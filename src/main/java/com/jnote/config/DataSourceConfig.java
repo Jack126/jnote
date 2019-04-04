@@ -18,7 +18,7 @@ import javax.sql.DataSource;
 
 
 @Configuration
-@MapperScan("com.jnote.dao")
+@MapperScan("com.jnote.mapper")
 @EnableTransactionManagement
 public class DataSourceConfig {
 

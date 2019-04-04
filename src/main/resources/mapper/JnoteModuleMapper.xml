@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jnote.mapper.JnoteModuleMapper">
+  <resultMap id="BaseResultMap" type="com.jnote.model.JnoteModule">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="alias" jdbcType="VARCHAR" property="alias" />
+    <result column="url" jdbcType="VARCHAR" property="url" />
+    <result column="position" jdbcType="BIT" property="position" />
+    <result column="version" jdbcType="CHAR" property="version" />
+    <result column="is_admin" jdbcType="BIT" property="is_admin" />
+    <result column="is_default" jdbcType="BIT" property="is_default" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="create_time" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="update_time" />
+    <result column="status" jdbcType="TINYINT" property="status" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, alias, url, position, version, is_admin, is_default, create_time, update_time, 
+    status
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from jnote_module
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from jnote_module
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.jnote.model.JnoteModule">
+    insert into jnote_module (id, name, alias, 
+      url, position, version, is_admin, 
+      is_default, create_time, update_time, 
+      status)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{alias,jdbcType=VARCHAR}, 
+      #{url,jdbcType=VARCHAR}, #{position,jdbcType=BIT}, #{version,jdbcType=CHAR}, #{is_admin,jdbcType=BIT}, 
+      #{is_default,jdbcType=BIT}, #{create_time,jdbcType=TIMESTAMP}, #{update_time,jdbcType=TIMESTAMP}, 
+      #{status,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.jnote.model.JnoteModule">
+    insert into jnote_module
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="alias != null">
+        alias,
+      </if>
+      <if test="url != null">
+        url,
+      </if>
+      <if test="position != null">
+        position,
+      </if>
+      <if test="version != null">
+        version,
+      </if>
+      <if test="is_admin != null">
+        is_admin,
+      </if>
+      <if test="is_default != null">
+        is_default,
+      </if>
+      <if test="create_time != null">
+        create_time,
+      </if>
+      <if test="update_time != null">
+        update_time,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="alias != null">
+        #{alias,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null">
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="position != null">
+        #{position,jdbcType=BIT},
+      </if>
+      <if test="version != null">
+        #{version,jdbcType=CHAR},
+      </if>
+      <if test="is_admin != null">
+        #{is_admin,jdbcType=BIT},
+      </if>
+      <if test="is_default != null">
+        #{is_default,jdbcType=BIT},
+      </if>
+      <if test="create_time != null">
+        #{create_time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="update_time != null">
+        #{update_time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jnote.model.JnoteModule">
+    update jnote_module
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="alias != null">
+        alias = #{alias,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null">
+        url = #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="position != null">
+        position = #{position,jdbcType=BIT},
+      </if>
+      <if test="version != null">
+        version = #{version,jdbcType=CHAR},
+      </if>
+      <if test="is_admin != null">
+        is_admin = #{is_admin,jdbcType=BIT},
+      </if>
+      <if test="is_default != null">
+        is_default = #{is_default,jdbcType=BIT},
+      </if>
+      <if test="create_time != null">
+        create_time = #{create_time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="update_time != null">
+        update_time = #{update_time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=TINYINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jnote.model.JnoteModule">
+    update jnote_module
+    set name = #{name,jdbcType=VARCHAR},
+      alias = #{alias,jdbcType=VARCHAR},
+      url = #{url,jdbcType=VARCHAR},
+      position = #{position,jdbcType=BIT},
+      version = #{version,jdbcType=CHAR},
+      is_admin = #{is_admin,jdbcType=BIT},
+      is_default = #{is_default,jdbcType=BIT},
+      create_time = #{create_time,jdbcType=TIMESTAMP},
+      update_time = #{update_time,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=TINYINT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
