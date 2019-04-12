@@ -10,10 +10,10 @@ import com.jnote.utils.RespUtil;
 /**
  * @author jack126 https://github.com/Jack126
  * @classname TestController
- * @description TODO
+ * @description test file
  * @date 2019/4/2 09:16
  */
-@RestController
+@Controller
 @RequestMapping
 public class TestController {
     protected static Logger logger = LoggerFactory.getLogger(TestController.class);
@@ -28,8 +28,5 @@ public class TestController {
         return "security/hello";
     }
 
-    @RequestMapping(value = "/login")
-    public String login() {
-        return "security/login";
-    }
+    
 }

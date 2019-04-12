@@ -1,7 +1,10 @@
 package com.jnote.mapper;
 
 import com.jnote.model.JnoteBlog;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
+@Mapper
 public interface JnoteBlogMapper {
     int deleteByPrimaryKey(Integer id);
 
@@ -14,4 +17,7 @@ public interface JnoteBlogMapper {
     int updateByPrimaryKeySelective(JnoteBlog record);
 
     int updateByPrimaryKey(JnoteBlog record);
+    
+    JnoteBlog getBlogById(Long id);
+    
 }

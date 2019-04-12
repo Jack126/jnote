@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jnote.mapper.JnoteBlogCommentMapper">
+  <resultMap id="BaseResultMap" type="com.jnote.model.JnoteBlogComment">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="blog_id" jdbcType="INTEGER" property="blog_id" />
+    <result column="parent_comment_id" jdbcType="INTEGER" property="parent_comment_id" />
+    <result column="at_comment_id" jdbcType="INTEGER" property="at_comment_id" />
+    <result column="member_id" jdbcType="INTEGER" property="member_id" />
+    <result column="at_member_id" jdbcType="INTEGER" property="at_member_id" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="create_time" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="update_time" />
+    <result column="status" jdbcType="TINYINT" property="status" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.jnote.model.JnoteBlogComment">
+    <result column="content" jdbcType="LONGVARCHAR" property="content" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, blog_id, parent_comment_id, at_comment_id, member_id, at_member_id, create_time, 
+    update_time, status
+  </sql>
+  <sql id="Blob_Column_List">
+    content
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from jnote_blog_comment
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from jnote_blog_comment
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.jnote.model.JnoteBlogComment">
+    insert into jnote_blog_comment (id, blog_id, parent_comment_id, 
+      at_comment_id, member_id, at_member_id, 
+      create_time, update_time, status, 
+      content)
+    values (#{id,jdbcType=INTEGER}, #{blog_id,jdbcType=INTEGER}, #{parent_comment_id,jdbcType=INTEGER}, 
+      #{at_comment_id,jdbcType=INTEGER}, #{member_id,jdbcType=INTEGER}, #{at_member_id,jdbcType=INTEGER}, 
+      #{create_time,jdbcType=TIMESTAMP}, #{update_time,jdbcType=TIMESTAMP}, #{status,jdbcType=TINYINT}, 
+      #{content,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.jnote.model.JnoteBlogComment">
+    insert into jnote_blog_comment
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="blog_id != null">
+        blog_id,
+      </if>
+      <if test="parent_comment_id != null">
+        parent_comment_id,
+      </if>
+      <if test="at_comment_id != null">
+        at_comment_id,
+      </if>
+      <if test="member_id != null">
+        member_id,
+      </if>
+      <if test="at_member_id != null">
+        at_member_id,
+      </if>
+      <if test="create_time != null">
+        create_time,
+      </if>
+      <if test="update_time != null">
+        update_time,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="blog_id != null">
+        #{blog_id,jdbcType=INTEGER},
+      </if>
+      <if test="parent_comment_id != null">
+        #{parent_comment_id,jdbcType=INTEGER},
+      </if>
+      <if test="at_comment_id != null">
+        #{at_comment_id,jdbcType=INTEGER},
+      </if>
+      <if test="member_id != null">
+        #{member_id,jdbcType=INTEGER},
+      </if>
+      <if test="at_member_id != null">
+        #{at_member_id,jdbcType=INTEGER},
+      </if>
+      <if test="create_time != null">
+        #{create_time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="update_time != null">
+        #{update_time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jnote.model.JnoteBlogComment">
+    update jnote_blog_comment
+    <set>
+      <if test="blog_id != null">
+        blog_id = #{blog_id,jdbcType=INTEGER},
+      </if>
+      <if test="parent_comment_id != null">
+        parent_comment_id = #{parent_comment_id,jdbcType=INTEGER},
+      </if>
+      <if test="at_comment_id != null">
+        at_comment_id = #{at_comment_id,jdbcType=INTEGER},
+      </if>
+      <if test="member_id != null">
+        member_id = #{member_id,jdbcType=INTEGER},
+      </if>
+      <if test="at_member_id != null">
+        at_member_id = #{at_member_id,jdbcType=INTEGER},
+      </if>
+      <if test="create_time != null">
+        create_time = #{create_time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="update_time != null">
+        update_time = #{update_time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="content != null">
+        content = #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.jnote.model.JnoteBlogComment">
+    update jnote_blog_comment
+    set blog_id = #{blog_id,jdbcType=INTEGER},
+      parent_comment_id = #{parent_comment_id,jdbcType=INTEGER},
+      at_comment_id = #{at_comment_id,jdbcType=INTEGER},
+      member_id = #{member_id,jdbcType=INTEGER},
+      at_member_id = #{at_member_id,jdbcType=INTEGER},
+      create_time = #{create_time,jdbcType=TIMESTAMP},
+      update_time = #{update_time,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=TINYINT},
+      content = #{content,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jnote.model.JnoteBlogComment">
+    update jnote_blog_comment
+    set blog_id = #{blog_id,jdbcType=INTEGER},
+      parent_comment_id = #{parent_comment_id,jdbcType=INTEGER},
+      at_comment_id = #{at_comment_id,jdbcType=INTEGER},
+      member_id = #{member_id,jdbcType=INTEGER},
+      at_member_id = #{at_member_id,jdbcType=INTEGER},
+      create_time = #{create_time,jdbcType=TIMESTAMP},
+      update_time = #{update_time,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=TINYINT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

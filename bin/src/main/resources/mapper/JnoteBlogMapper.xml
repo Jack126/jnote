@@ -12,10 +12,6 @@
     <result column="create_time" jdbcType="TIMESTAMP" property="create_time" />
     <result column="update_time" jdbcType="TIMESTAMP" property="update_time" />
     <result column="status" jdbcType="TINYINT" property="status" />
-    <!-- <collection property="tags" ofType="com.jnote.model.JnoteBlogContent" column="tagName">
-        <id property="id" column="tid"/>
-        <result property="tagName" column="tagName"/>
-    </collection> -->
   </resultMap>
   <sql id="Base_Column_List">
     id, title, image, description, blog_category_id, tag_id, createdby_id, create_time, 
@@ -154,7 +150,4 @@
       status = #{status,jdbcType=TINYINT}
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <select id="getBlogById" parameterType="com.jnote.model.JnoteBlog">
-  	SELECT b.* FROM jnote_blog as b where b.id=#{id} 
-  </select>
 </mapper>

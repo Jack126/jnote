@@ -1,0 +1,6 @@
+::win下杀死进程方法，保存为bat文件执行即可,8085为对应端口号，请根据需要修改
+@echo off
+for /f "tokens=5" %%i in ('netstat -aon ^| findstr ":8085"') do (
+    set n=%%i
+)
+taskkill /f /pid %n%

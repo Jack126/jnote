@@ -1,8 +1,8 @@
 package com.jnote.controller;
 
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.stereotype.Controller;
 
 import com.jnote.utils.RespUtil;
 /**
@@ -10,7 +10,7 @@ import com.jnote.utils.RespUtil;
  * @description 公用方法入口
  * @date 15:17 2019/4/3
 */
-@RestController
+@Controller
 
 public class PubController {
 	//登陆失败
@@ -33,4 +33,15 @@ public class PubController {
 	public RespUtil loginPage() {
 		return new RespUtil(400,"尚未登陆，请登陆后重试");
 	}
+	
+	@RequestMapping(value = "/login",method = RequestMethod.GET)
+    public String login() {
+        return "pub/login";
+    }
+	
+	@RequestMapping(value = "/login1", method = RequestMethod.POST)
+	public String login1() {
+		return "pub/login";
+	}
+	
 }
