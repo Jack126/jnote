@@ -23,7 +23,7 @@ import javax.sql.DataSource;
 public class DataSourceConfig {
 
 
-    private static Logger logger = LoggerFactory.getLogger(DataSourceConfig.class);
+    //private static Logger logger = LoggerFactory.getLogger(DataSourceConfig.class);
 
     @Autowired
     private Environment env;

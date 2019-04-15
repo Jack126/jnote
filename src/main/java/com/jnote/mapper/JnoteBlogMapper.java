@@ -18,6 +18,6 @@ public interface JnoteBlogMapper {
 
     int updateByPrimaryKey(JnoteBlog record);
     
-    JnoteBlog getBlogById(Long id);
+    JnoteBlog getBlogById(Integer id);
     
 }

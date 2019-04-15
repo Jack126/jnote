@@ -154,7 +154,7 @@
       status = #{status,jdbcType=TINYINT}
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <select id="getBlogById" parameterType="com.jnote.model.JnoteBlog">
-  	SELECT b.* FROM jnote_blog as b where b.id=#{id} 
+  <select id="getBlogById" resultType="com.jnote.model.JnoteBlog" parameterType="INTEGER">
+  	SELECT b.* FROM jnote_blog AS b WHERE b.id=#{id}
   </select>
 </mapper>
